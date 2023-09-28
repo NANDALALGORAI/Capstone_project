@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary-subtle">
+  <a class="navbar-brand" routerLink="/dashboard">
+    <img src="https://img.freepik.com/premium-vector/chart-logo-with-direction-arrow_273580-6.jpg?w=2000" alt="MFNews Logo" class="logo">
+    <b> MFNews</b>
+  </a>
+  <div class="container">
+    
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link login-signup" routerLink="/Login" *ngIf="!loggedIn()">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link login-signup" routerLink="/signup" *ngIf="!loggedIn()">Signup</a>
+        </li>
+        <li class="nav-item" *ngIf="loggedIn()">
+          <a class="nav-link" href="#">{{ this.username }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link login-signup" routerLink="/watchList" *ngIf="loggedIn()">Watch_List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link login-signup" routerLink="/dashboard" (click)="logout()" *ngIf="loggedIn()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

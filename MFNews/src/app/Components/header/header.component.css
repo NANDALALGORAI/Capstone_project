@@ -1,0 +1,23 @@
+/* CSS for hover effect */
+.login-signup {
+    font-size: 1.5rem; /* Set the default font size */
+    text-decoration: none; /* Remove underline by default */
+    transition: color 0.3s, font-weight 0.3s; /* Add a smooth transition effect for color and font-weight */
+  }
+  
+  .login-signup:hover {
+    color: #e8293f; /* Change text color on hover to highlighter color */
+    font-weight: bold; /* Make the text bold on hover */
+    text-decoration: none; /* Remove underline on hover */
+  }
+  
+  /* CSS to adjust the logo size */
+.logo {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%;
+  }
+
+  .navbar-brand {
+    margin-left: 15px;
+  }
