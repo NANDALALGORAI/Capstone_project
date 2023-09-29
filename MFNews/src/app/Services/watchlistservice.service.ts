@@ -21,7 +21,8 @@ export class WatchlistserviceService implements OnInit {
   }
 
   addToWatchlist(item: any) {
-    this.watchlistItems.push(item);
+    console.log(item);
+    return this.http.post<any>(`${this.baseUrl}/watchlist`, item);
   }
 
   getWatchlistItems(): any[] {
@@ -36,9 +37,9 @@ export class WatchlistserviceService implements OnInit {
 }
   
 
-  removeFromWatchlist(item: any) {
+  removeFromWatchlist(username: any, name: any, country: any, industry: any) {
     
-    return this.http.delete<any>(`${this.baseUrl}/${item}`);
+    return this.http.delete<any>(`${this.baseUrl}/${username},${name},${country},${industry}`);
   }
 
 }

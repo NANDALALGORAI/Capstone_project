@@ -12,6 +12,7 @@ import { WatchlistserviceService } from 'src/app/Services/watchlistservice.servi
 export class WatchListComponent {
   watchlistItems: any[] = [];
   loggedIn: boolean = true;
+  id! : string;
   constructor(
     private watchlistService: WatchlistserviceService,
     private mfService: MFServiceService,
@@ -21,20 +22,30 @@ export class WatchListComponent {
 
   ngOnInit(): void {
     // Load watchlist items from the WatchlistService
-    this.watchlistService.getItems().subscribe(res=>{
-      this.watchlistItems=res;
-      console.log(res);
-  });
+    this.displayitem();
+  
   }
-  removeFromWatchlist(item: any) {
-    this.watchlistService.removeFromWatchlist(item).subscribe({
-      next: (res) => {
-        this.toast.success({detail: "SUCCESS", summary:res.message, duration: 5000});
+displayitem(){
+  this.watchlistService.getItems().subscribe(res=>{
+    this.watchlistItems=res;
+    
+});
+}
 
-        this.router.navigate(['/dashboard']);
+
+  removeFromWatchlist(user: any, name: any, country: any, industry: any) {
+    this.watchlistService.removeFromWatchlist(user,name,country,industry).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.toast.success({detail: "SUCCESS", summary:res.message, duration: 5000});
+        this.displayitem();
+
+        // this.router.navigate(['/dashboard']);
       },
       error: (err) => {
-        this.toast.error({detail: "ERROR", summary:err.message, duration: 5000});
+        //this.toast.error({detail: "ERROR", summary:err.message, duration: 5000});
+        this.displayitem();
+       // this.router.navigate(['/watchList']);
       }
     }); // Call the removeFromWatchlist method
   }

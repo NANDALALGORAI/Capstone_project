@@ -19,7 +19,7 @@
           <a class="nav-link login-signup" routerLink="/signup" *ngIf="!loggedIn()">Signup</a>
         </li>
         <li class="nav-item" *ngIf="loggedIn()">
-          <a class="nav-link" href="#">{{ this.username }}</a>
+          <a class="nav-link login-signup" href="#">Welcome {{ this.username }}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link login-signup" routerLink="/watchList" *ngIf="loggedIn()">Watch_List</a>

@@ -1,4 +1,5 @@
-﻿using WatchListAPI.Models;
+﻿using MongoDB.Bson;
+using WatchListAPI.Models;
 
 
 namespace WatchListAPI.Service
@@ -11,8 +12,8 @@ namespace WatchListAPI.Service
         Task<List<WatchlistItem>> GetByUserEmailAsync(string username);
 
         
-       Task<WatchlistItem> GetAsync(int id);
-        Task RemoveAsyc(int id);
+      // Task<WatchlistItem> GetAsync(string id);
+        Task RemoveAsyc(string username, string name, string country, string industry);
         
     }
 }

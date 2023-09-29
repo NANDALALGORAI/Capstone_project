@@ -1,13 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace WatchListAPI.Models
 {
     public class WatchlistItem
     {
-
-        [Key]
-        public int Id { get; set; }
+       
+        
+        [BsonId]
+        public ObjectId Id { get; set; }
 
         public string Username { get; set; }
 
@@ -25,9 +28,9 @@ namespace WatchListAPI.Models
 
         public string Type { get; set; }
 
-        public string MatchScore { get; set; }
+        public double MatchScore { get; set; }
 
-        public string SentimentScore { get; set; }
+        public double SentimentScore { get; set; }
     }
 }
 

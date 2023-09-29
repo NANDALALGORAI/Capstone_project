@@ -1,7 +1,7 @@
 <div class="content">
   <div fxLayout="row wrap" fxLayoutGap="16px" fxLayoutAlign="center start" class="layout-news">
-    <div fxFlex.gt-md="30%" fxFlex.gt-sm="33%" fxFlexAlign="stretch" *ngFor="let n of mfn">
-          <div fxFlexAlign="stretch" *ngFor="let ni of n.entities">
+    <div fxFlex.gt-md="30%" fxFlex.gt-sm="33%" *ngFor="let n of mfn">
+          <div  *ngFor="let ni of n.entities">
       <mat-card class="example-card" style="border: 1px solid #d5d5d5;">
         <mat-card-header class="news-header">
           <mat-card-title class="badge-news">{{ ni.symbol }}</mat-card-title>
@@ -41,7 +41,7 @@
         </mat-card-content>
 
         <mat-card-actions>
-          <button mat-button class="btn btn-primary" (click)="addToWatchlist(ni)">Watch-List</button>
+          <button mat-button class="btn btn-primary" (click)="addToWatchlist(ni, n)">Watch-List</button>
         </mat-card-actions>
       </mat-card>
       <br />
