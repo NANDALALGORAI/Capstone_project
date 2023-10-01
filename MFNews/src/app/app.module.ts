@@ -16,6 +16,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {NgToastModule} from 'ng-angular-popup';
 import { WatchListComponent } from './Components/watch-list/watch-list.component';
+import { EditProfileComponent } from './Components/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { WatchListComponent } from './Components/watch-list/watch-list.component
     HeaderComponent,
     SignupComponent,
     FooterComponent,
-    WatchListComponent
+    WatchListComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

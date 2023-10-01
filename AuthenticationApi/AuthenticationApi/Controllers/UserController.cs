@@ -45,6 +45,7 @@ namespace AuthenticationApi.Controllers
 
             return Ok(new
             { 
+                Username = user.Username,
                 Token = user.Token,
                 Message = "Login Success!"
             });
@@ -137,6 +138,34 @@ namespace AuthenticationApi.Controllers
         public async Task<ActionResult<User>> GetAllUser()
         {
             return Ok(await _authContext.Users.ToListAsync());
+        }
+
+        [HttpGet("{username}")]
+        public async Task<ActionResult<User>> GetUser(string username)
+        {
+            var watchlistItems = await _authContext.Users.FirstOrDefaultAsync(x => x.Username == username);
+            if (watchlistItems == null)
+            {
+                return NotFound();
+            }
+            return watchlistItems;
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<User>> update(User profile)
+        {
+            var book = await _authContext.Users.FirstOrDefaultAsync(x => x.Id == profile.Id);
+            if (book is null)
+            {
+                return NotFound();
+            }
+            book.FirstName = profile.FirstName;
+            book.LastName = profile.LastName;
+         
+            await _authContext.SaveChangesAsync();
+
+            return Ok("Successfully updated");
+
         }
     }
 }
