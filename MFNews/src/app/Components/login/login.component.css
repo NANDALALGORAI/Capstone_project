@@ -1,6 +1,10 @@
 .outer{
     height: 100vh;
-    background: linear-gradient(to bottom, #e0cfbb 50%, #86b1d2 100%) no-repeat;
+    background-image: url('https://media.istockphoto.com/vectors/financial-data-graph-chart-vector-illustration-trend-lines-columns-vector-id880902728?k=6&m=880902728&s=170667a&w=0&h=WUOAE_TR1Ci_Nq69sgWYitauCgjuPfbfFyR79dLCAs0='); 
+    background-color: rgba(0, 0, 0, 0.7);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 .panel-heading{
     text-align: center;
@@ -8,11 +12,19 @@
 
 }
 
+.grey-button {
+    background-color: grey; /* Change the background color to grey */
+    border-color: black;
+    color: white; /* Change the text color to white or any suitable color for visibility */
+}
+
+
 #forget{
     min-width: 100px;
     margin-left: auto;
     text-decoration: none;
     cursor: pointer;;
+    color:rgba(0, 0, 0)
 }
 
 a:hover{
@@ -43,7 +55,7 @@ a:hover{
     align-items: center;
     cursor: pointer;
     border: 1px solid #ddd;
-    color: #4343ff;
+    color: #767677;
 
 }
 

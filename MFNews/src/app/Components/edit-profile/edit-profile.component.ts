@@ -55,12 +55,13 @@ export class EditProfileComponent implements OnInit {
 
     this.auth.updateUser(this.userprofileObj).subscribe({
       next:(res=>{
-        alert(res.message);
+        //alert(res.message);
         
-        this.router.navigate(['/Dashboard']);
+        this.router.navigate(['/dashboard']);
       }),
       error:(err)=>{
-        alert(err?.error.message);
+        //alert(err?.error.message);
+        this.router.navigate(['/dashboard']);
         console.log(err?.error.message);
       }
     });

@@ -1,23 +1,50 @@
-/* CSS for hover effect */
-.login-signup {
-    font-size: 1.5rem; /* Set the default font size */
-    text-decoration: none; /* Remove underline by default */
-    transition: color 0.3s, font-weight 0.3s; /* Add a smooth transition effect for color and font-weight */
-  }
-  
-  .login-signup:hover {
-    color: #e8293f; /* Change text color on hover to highlighter color */
-    font-weight: bold; /* Make the text bold on hover */
-    text-decoration: none; /* Remove underline on hover */
-  }
-  
-  /* CSS to adjust the logo size */
-.logo {
-    width: 50px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 50%;
-  }
+/* Navbar styles */
+.navbar {
+  background-color: #333; /* Dark gray background */
+  color: rgb(58, 37, 37); /* White text color */
+}
 
-  .navbar-brand {
-    margin-left: 15px;
-  }
+.navbar-brand {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: rgb(77, 69, 69); /* White text color */
+}
+
+.navbar-toggler-icon {
+  background-color: rgb(73, 68, 68); /* White background for the toggler icon */
+}
+
+/* Navigation links */
+.nav-link {
+  font-size: 1.2rem;
+  color: rgb(63, 51, 51); /* White text color */
+  margin-right: 20px;
+}
+
+.nav-link:hover {
+  color: #3b1015; /* Darker gray text color on hover */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Logo styles */
+.logo {
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* Container styles */
+.container {
+  padding: 0 20px;
+}
+
+/* Adjust margin for the brand */
+.navbar-brand {
+  margin-left: 15px;
+}
+
+/* User welcome message */
+.nav-link.welcome-message {
+  font-weight: bold;
+}

@@ -1,3 +1,4 @@
+<div class="dashboard-background">
 <div class="content">
   <div fxLayout="row wrap" fxLayoutGap="16px" fxLayoutAlign="center start" class="layout-news">
     <div fxFlex.gt-md="30%" fxFlex.gt-sm="33%" *ngFor="let n of mfn">
@@ -41,10 +42,11 @@
         </mat-card-content>
 
         <mat-card-actions>
-          <button mat-button class="btn btn-primary" (click)="addToWatchlist(ni, n)">Watch-List</button>
+          <button mat-button class="btn btn-grey grey-button" (click)="addToWatchlist(ni, n)">Watch-List</button>
         </mat-card-actions>
       </mat-card>
       <br />
     </div>
   </div>
+</div>
 </div>

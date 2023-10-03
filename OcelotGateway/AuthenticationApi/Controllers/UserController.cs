@@ -164,7 +164,7 @@ namespace AuthenticationApi.Controllers
          
             await _authContext.SaveChangesAsync();
 
-            return NoContent();
+            return Ok("Successfully updated");
 
         }
     }

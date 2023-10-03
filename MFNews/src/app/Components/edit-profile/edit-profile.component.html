@@ -4,25 +4,28 @@
             <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
                 <div class="panel border bg-white">
                     <div class="panel-heading">
-                        <h3 class="pt-3 font-weight-bold">Change Password</h3>
+                        <h3 class="pt-3 font-weight-bold">Edit Profile</h3>
                     </div>
                     <div class="panel-body p-3">
                         <form [formGroup]="EditForm">
                             
                             <div class="form-group pt-3">
-                                
-                                    <input formControlName="firstName" type="text" placeholder="First Name" >
-                                
+                                <div class="input-field" [class.error]="EditForm.controls['firstName'].dirty && EditForm.hasError('required','firstName')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="firstName" type="text" placeholder="First Name">
+                                </div>
                             </div>
-                            
+                            <small *ngIf="EditForm.controls['firstName'].dirty && EditForm.hasError('required','firstName')" class="text-danger">*First Name is Required</small>
                             <div class="form-group pt-3">
-                               
+                                <div class="input-field" [class.error]="EditForm.controls['lastName'].dirty && EditForm.hasError('required','lastName')">
+                                    <span class="fa fa-user p-2"></span>
                                     <input formControlName="lastName" type="text" placeholder="Last Name">
-                                
+                                </div>
                             </div>
+                            <small *ngIf="EditForm.controls['lastName'].dirty && EditForm.hasError('required','lastName')" class="text-danger">*Last Name is Required</small>
                             
                             
-                            <button (click)="onEdit()" type="submit" class="btn btn-primary btn-block mt-4 w-100">Update Password</button>
+                            <button (click)="onEdit()" type="submit" class="btn btn-grey btn-block mt-4 w-100 grey-button">Update Profile</button>
                             
                         </form>
                     </div>
