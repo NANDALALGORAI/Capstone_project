@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(169,169,169)">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(169, 169, 169)">
   <a class="navbar-brand" routerLink="/dashboard">
     <img src="https://img.freepik.com/premium-vector/chart-logo-with-direction-arrow_273580-6.jpg?w=2000" alt="MFNews Logo" class="logo">
     <b> MFNews</b>
   </a>
   <div class="container">
-    
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -19,7 +19,15 @@
           <a class="nav-link login-signup" routerLink="/signup" *ngIf="!loggedIn()">Signup</a>
         </li>
         <li class="nav-item" *ngIf="loggedIn()">
-          <a class="nav-link login-signup" routerLink="/editprofile">Welcome {{ this.username }}</a>
+          <div class="nav-item dropdown"> <!-- Add a dropdown container -->
+            <a class="nav-link login-signup dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Welcome {{ this.username }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="/editprofile">Edit Profile</a> <!-- Add Edit Profile link -->
+            </div>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link login-signup" routerLink="/watchList" *ngIf="loggedIn()">Watch_List</a>

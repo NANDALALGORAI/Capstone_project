@@ -6,13 +6,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { authGuard } from './secure/auth.guard';
 import { WatchListComponent } from './Components/watch-list/watch-list.component';
 import { EditProfileComponent } from './Components/edit-profile/edit-profile.component';
+import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 
 const routes: Routes = [
   {path:'Login', component:LoginComponent},
   {path:'signup', component:SignupComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'watchList',component:WatchListComponent, canActivate:[authGuard]},
-  {path:'editprofile', component:EditProfileComponent,},
+  {path:'editprofile', component:EditProfileComponent, canActivate:[authGuard]},
+  {path:'changePassword', component: ChangePasswordComponent},
   {path:'', component:DashboardComponent,}
 ];
 

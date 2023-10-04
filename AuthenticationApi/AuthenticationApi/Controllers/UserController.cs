@@ -167,5 +167,52 @@ namespace AuthenticationApi.Controllers
             return NoContent();
 
         }
+
+        [HttpPut("change-password")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordModel model)
+        {
+            if (model == null)
+            {
+                return BadRequest(new { Message = "Invalid request." });
+            }
+
+            var user = await _authContext.Users.FirstOrDefaultAsync(x => x.Username == model.Username);
+
+            if (user == null)
+            {
+                return NotFound(new { Message = "User Not Found!" });
+            }
+
+            // Verify old password
+            if (!PasswordHasher.VerifyPassword(model.OldPassword, user.Password))
+            {
+                return BadRequest(new { Message = "Old password is incorrect." });
+            }
+
+            // Check if the new password is the same as the old password
+            if (PasswordHasher.VerifyPassword(model.NewPassword, user.Password))
+            {
+                return BadRequest(new { Message = "New password cannot be the same as the old password." });
+            }
+
+            // Check new password strength
+            var passwordCheck = CheckPasswordStrength(model.NewPassword);
+            if (!string.IsNullOrEmpty(passwordCheck))
+            {
+                return BadRequest(new { Message = passwordCheck });
+            }
+
+            // Update the password
+            user.Password = PasswordHasher.HashPassword(model.NewPassword);
+
+            _authContext.Users.Update(user);
+            await _authContext.SaveChangesAsync();
+
+            return Ok(new { Message = "Password changed successfully!" });
+        }
+
+        
+
     }
 }
+

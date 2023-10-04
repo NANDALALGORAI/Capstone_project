@@ -1,4 +1,14 @@
 /* Navbar styles */
+.dropdown-menu .dropdown-item {
+  background-color: grey;
+  color: white; /* Text color on hover */
+}
+
+/* Hover effect for the Edit Profile link */
+.dropdown-menu .dropdown-item:hover {
+  background-color: darkgrey; /* Change the background color on hover */
+}
+
 .navbar {
   background-color: #333; /* Dark gray background */
   color: rgb(58, 37, 37); /* White text color */

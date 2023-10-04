@@ -13,10 +13,11 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { LoginComponent } from './Components/login/login.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgToastModule} from 'ng-angular-popup';
 import { WatchListComponent } from './Components/watch-list/watch-list.component';
 import { EditProfileComponent } from './Components/edit-profile/edit-profile.component';
+import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EditProfileComponent } from './Components/edit-profile/edit-profile.com
     SignupComponent,
     FooterComponent,
     WatchListComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,9 @@ import { EditProfileComponent } from './Components/edit-profile/edit-profile.com
     MatToolbarModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    NgToastModule
+    NgToastModule,
+    FormsModule
+    
 
   ],
   providers: [],

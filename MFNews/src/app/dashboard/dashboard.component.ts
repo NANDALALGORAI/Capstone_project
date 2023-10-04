@@ -5,6 +5,8 @@ import { WatchlistserviceService } from '../Services/watchlistservice.service';
 import { FormGroup } from '@angular/forms';
 import { WatchlistData } from '../Model/watchlist.model';
 import { NgToastService } from 'ng-angular-popup';
+import { AuthService } from '../Services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +22,9 @@ export class DashboardComponent implements OnInit{
 
   constructor(private mfservice:MFServiceService,
     private watchlistService:WatchlistserviceService,
-    private toast : NgToastService
+    private toast : NgToastService,
+    private authService:AuthService,
+    private router:Router
     ){}
 
   ngOnInit(): void {
@@ -31,7 +35,9 @@ export class DashboardComponent implements OnInit{
     )
   }
   addToWatchlist(item: any, items: any): void {
-    this.watchlistDataObj.username = localStorage.getItem('username');
+    if(this.loggedIn())
+    {
+      this.watchlistDataObj.username = localStorage.getItem('username');
     this.watchlistDataObj.symbol = item.symbol;
     this.watchlistDataObj.url = items.url;
     this.watchlistDataObj.image_url = items.image_url;
@@ -54,6 +60,15 @@ export class DashboardComponent implements OnInit{
         this.toast.error({detail: "ERROR", summary:err.message, duration: 5000});
       }
     })
-  }
 
+    }
+    else{
+      this.router.navigate(['/Login']);
+    }
+    
+  }
+  loggedIn(): boolean {
+    return this.authService.isLoggedIn();
+
+  }
 }
